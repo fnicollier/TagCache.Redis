@@ -12,10 +12,10 @@ namespace TagCache.Redis.ProtoBuf
         [ProtoMember(1)]
         public virtual string Key { get; set; }
 
-        [ProtoMember(2)]
+        [ProtoMember(1)]
         public virtual List<string> Tags { get; set; }
 
-        [ProtoMember(3)]
+        [ProtoMember(1)]
         public virtual DateTime Expires { get; set; }
     }
 

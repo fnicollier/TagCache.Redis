@@ -1,8 +1,4 @@
-﻿using System.Diagnostics;
-using NUnit.Framework; 
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using NUnit.Framework;
 using TagCache.Redis.Interfaces;
 using TagCache.Redis.Serialization; 
 
@@ -14,6 +10,11 @@ namespace TagCache.Redis.Tests.Serialization
         protected override ISerializationProvider GetSerializer()
         {
             return new XmlSerializationProvider();
+        }
+
+        protected override Redis.CacheConfiguration GetCacheConfiguration(RedisConnectionManager redis)
+        { 
+                return new Redis.CacheConfiguration(redis);
         }
     }
 }

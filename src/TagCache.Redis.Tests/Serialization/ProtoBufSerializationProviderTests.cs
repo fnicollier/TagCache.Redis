@@ -1,5 +1,4 @@
 using NUnit.Framework;
-using ProtoBuf;
 using TagCache.Redis.Interfaces;
 using TagCache.Redis.ProtoBuf;
 
@@ -11,6 +10,11 @@ namespace TagCache.Redis.Tests.Serialization
         protected override ISerializationProvider GetSerializer()
         {
             return new ProtoBufSerializationProvider();
+        }
+
+        protected override Redis.CacheConfiguration GetCacheConfiguration(RedisConnectionManager redis)
+        {
+            return new ProtoBuf.CacheConfiguration(redis);
         }
     }
 }
